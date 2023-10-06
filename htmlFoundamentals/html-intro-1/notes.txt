@@ -1,0 +1,34 @@
+HTML syntax:
+basically tags and atributes
+
+
+<!DOCTYPE html>
+//document type declaration
+//wich version of html
+
+//The HTML tag has two children:
+//the HEAD tag and the BODY tag
+
+<html lang: "en">
+//"open tag" or "start tag"
+//establishes the language of my page
+    <head>
+        //head of the page
+        //(the title in the tab)
+        //HEAD has a child, a title element:
+        <title>
+            hello, title
+            //pure text
+            //this is called a node
+        </title>
+    </head>
+    <body>
+        //the page content
+        //text node:
+        hello, body
+    </body>
+
+
+
+
+</html>

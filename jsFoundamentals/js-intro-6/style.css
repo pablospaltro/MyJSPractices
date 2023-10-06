@@ -1,0 +1,20 @@
+#countLabel {
+    display: block;
+    text-align: center;
+    font-size: 50px;
+}
+
+#buttonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#decreaseBtn, #resetBtn, #increaseBtn {
+    display: inline-block; 
+    text-align: center;
+    font-size: 20px;
+    margin: 5px; 
+}
+
+
