@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body
+        {
+            font-size:x-large; 
+        }
+        #userChoice
+        {
+            color: #0000ff;
+        }
+        #computerChoice
+        {
+            color: #ff0f0f;
+        }
+        #wins
+        {
+            color: #00ff00;
+        }
+        #losses
+        {
+            color: #ff00ff;
+        }
+        #ties
+        {
+            color: #00f0f0;
+        }
+        #gameTitle {
+        font-size: 24px;
+        }
+        
+    </style>
+    <link href="game.css" rel="stylesheet">
+    <title>Rock, Paper, Scissors</title>
+</head>
+<body class="centered">
+    <img alt="Game" class="img-fluid w-25" src="rockPaperScissors.jpg" style="width: 300px;">
+    <h1 id="gameTitle">Let's play</h1>
+    <label for="choice">Enter your choice (rock, paper, or scissors):</label>
+    <input type="text" id="choice" placeholder="Enter your choice">
+    <button onclick="playGame()">Play</button>
+    <p id="userChoice">Your choice: <span id="userChoice"></span></p>
+    <p id="computerChoice">Computer's choice: <span id="computerChoice"></span></p>
+    <p id="result"></p>
+    <p>Wins: <span id="wins">0</span></p>
+    <p>Losses: <span id="losses">0</span></p>
+    <p>Ties: <span id="ties">0</span></p>
+
+    <script>
+        let wins = 0;
+        let losses = 0;
+        let ties = 0;
+
+        function playGame() {
+        const userChoice = document.getElementById("choice").value.toLowerCase();
+        const choices = ["rock", "paper", "scissors"];
+        const randomIndex = Math.floor(Math.random() * 3);
+        const computerChoice = choices[randomIndex];
+
+    
+        const userChoiceElement = document.getElementById("userChoice");
+        userChoiceElement.textContent = `Your choice: ${userChoice}`;
+
+        const computerChoiceElement = document.getElementById("computerChoice");
+        computerChoiceElement.textContent = `Computer's choice: ${computerChoice}`;
+
+        if (!choices.includes(userChoice)) {
+            document.getElementById("result").textContent = "Invalid choice. Please enter 'rock', 'paper', or 'scissors'.";
+        } else if (userChoice === computerChoice) {
+            document.getElementById("result").textContent = "* Draw! *";
+            ties++;
+        } else if (
+            (userChoice === "paper" && computerChoice === "rock") ||
+            (userChoice === "rock" && computerChoice === "scissors") ||
+            (userChoice === "scissors" && computerChoice === "paper")
+        ) {
+            document.getElementById("result").textContent = "* You win! *";
+            wins++;
+        } else {
+            document.getElementById("result").textContent = "* You lose! *";
+            losses++;
+        }
+
+        document.getElementById("wins").textContent = wins;
+        document.getElementById("losses").textContent = losses;
+        document.getElementById("ties").textContent = ties;
+    }
+    </script>
+</body>
+</html>
